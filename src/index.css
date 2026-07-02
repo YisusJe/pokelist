@@ -1,0 +1,79 @@
+:root {
+  --ink: oklch(0.17 0.020 29);
+  --ink-raised: oklch(0.235 0.024 29);
+  --ink-raised-2: oklch(0.29 0.026 29);
+  --paper: oklch(0.95 0.010 29);
+  --muted: oklch(0.72 0.035 29);
+  --accent: oklch(0.665 0.19 29);
+  --accent-deep: oklch(0.50 0.19 29);
+  --accent-soft: oklch(0.30 0.09 29);
+
+  --radius-md: 0.75rem;
+  --radius-full: 999px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --font-display: 'Baloo 2', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-body: 'Hanken Grotesk', system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-family: var(--font-body);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--paper);
+  background-color: var(--ink);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: inherit;
+}
+a:hover {
+  color: oklch(from var(--accent) calc(l + 0.08) c h);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-width: 345px;
+  place-items: center;
+  min-height: 100vh;
+  margin-bottom: 20px;
+  background-color: var(--ink);
+}
+
+/* Prevent the table's non-shrinkable min-content width from forcing
+   the whole page wider than the viewport (flex items default to
+   min-width: auto, ignoring their own width constraints). */
+#root {
+  width: 100%;
+  min-width: 0;
+}
+
+button {
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--ink-raised);
+  color: var(--paper);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease-out-expo), background-color 0.2s var(--ease-out-expo);
+}
+button:hover {
+  border-color: var(--accent);
+}
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
