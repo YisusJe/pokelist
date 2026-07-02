@@ -52,13 +52,13 @@ export const PokemonTable = ({ pokelist, typeIcons, sortBy, handleChangeSortBy }
         <tbody>
           {pokelist.map((pokemon: Pokemon) => (
             <tr key={pokemon.id}>
-              <td>
+              <td data-label="Pokemon">
                 <img src={pokemon.sprites.front_default} alt={pokemon.name} />
               </td>
-              <td>{pokemon.name}</td>
-              <td>{pokemon.height}</td>
-              <td>{pokemon.weight}</td>
-              <td>{pokemon.types.map((type) => (
+              <td data-label="Name">{pokemon.name}</td>
+              <td data-label="Height">{pokemon.height}</td>
+              <td data-label="Weight">{pokemon.weight}</td>
+              <td data-label="Types">{pokemon.types.map((type) => (
                 <img
                   key={type.slot}
                   className="type-icon"
@@ -68,7 +68,7 @@ export const PokemonTable = ({ pokelist, typeIcons, sortBy, handleChangeSortBy }
                 />
               ))}
               </td>
-              <td>
+              <td data-label="Sound">
                 <button
                   type="button"
                   className="sound-button"

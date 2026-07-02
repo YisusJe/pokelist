@@ -243,3 +243,76 @@ img {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* Below this width the table no longer fits without horizontal scrolling,
+   so it's restyled as a stack of cards; the header row becomes a wrapping
+   row of sort pills instead of scrolling out of view with the columns. */
+@media (max-width: 640px) {
+  .table-container {
+    overflow-x: visible;
+    padding: 0 1rem;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
+  thead, tbody, tr {
+    display: block;
+  }
+
+  thead {
+    background-color: transparent;
+    margin-bottom: 0.75rem;
+  }
+
+  thead tr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  th, td {
+    padding: 0;
+    min-width: 0;
+  }
+
+  th {
+    display: inline-flex;
+    background-color: var(--ink-raised);
+    border-radius: var(--radius-full);
+    padding: 0.5rem 0.9rem;
+  }
+
+  tbody tr {
+    margin-bottom: 0.75rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    text-align: right;
+  }
+
+  td:not(:last-child) {
+    border-bottom: 1px solid oklch(0 0 0 / 0.15);
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    text-align: left;
+  }
+
+  td:has(> .type-icon) {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
